@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CalificacionComponent implements OnInit {
 
-  @Input() calificacionEntrante:number=0;
+  @Input() calificacionEntrante:any=0;
 
   @Output() startsClic =new EventEmitter<any>();
 

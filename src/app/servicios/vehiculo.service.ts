@@ -10,14 +10,21 @@ export class VehiculoService {
 
 constructor() { }
 
-getVehiculo(){
+getVehiculos(){
   return this.listaAutos
 }
 
-
-getVehiculoFiltro(id: string){
-  return this.listaAutos
+getVehiculoFiltro(id: string):Vehiculo|undefined{
+  let vehiculo= this.listaAutos.find(ele=> ele.id===id);
+  return vehiculo;
 }
+
+
+addVehiculo(vehiculo: Vehiculo){
+  this.listaAutos.push(vehiculo);
+
+}
+
 
 private listaAutos: Array <Vehiculo>=[
   {"id":"1","foto":'https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_7fe28e653a23491e83df7fddae8ae8d2.jpg',"marca":"Chevrolet","modelo":"Silverado-a","anio":2004,"color":"Blanco","kilometros":"1000","precio":21300,"calificacion":2},

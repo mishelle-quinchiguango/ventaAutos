@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
+import { ActivatedRoute } from '@angular/router';
+import { VehiculoService } from '../../servicios/vehiculo.service';
 
 @Component({
   selector: 'app-PagVehiculo',
@@ -8,21 +10,23 @@ import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
 })
 export class PagVehiculoComponent implements OnInit {
 
-  vehiculo: Vehiculo={
-    id:"1",
+  vehiculo?: Vehiculo={
+    id:"",
     foto:"",
-    marca:"chevrolet",
-    modelo:"onix",
-    anio:2022,
-    color:"rojo",
-    kilometros:"20845",
-    precio:6022,
-    calificacion:4
-  }
+    marca:"",
+    modelo:""
+    }
 
-  constructor() { }
+  constructor(
+    private router: ActivatedRoute,
+    private vehiculoService: VehiculoService
+  ) { }
 
   ngOnInit() {
+    this.router.params.subscribe(params =>{
+      this.vehiculo=this.vehiculoService.getVehiculoFiltro(params['id']);
+    })
   }
+
 
 }

@@ -30,8 +30,8 @@ export class ListaAutosComponent{
   ){ }
 
   ngOnInit(){
-   this.listaAutos=this._vehiculoService.getVehiculo();
-    
+   this.listaAutos=this._vehiculoService.getVehiculos();
+   
   }
   
   mostrarImagen():void{   //funcion para mostrar imagenes
