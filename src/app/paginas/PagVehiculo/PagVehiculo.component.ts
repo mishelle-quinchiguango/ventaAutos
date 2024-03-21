@@ -10,8 +10,14 @@ export class PagVehiculoComponent implements OnInit {
 
   vehiculo: Vehiculo={
     id:"1",
+    foto:"",
     marca:"chevrolet",
-    modelo:"onix"
+    modelo:"onix",
+    anio:2022,
+    color:"rojo",
+    kilometros:"20845",
+    precio:6022,
+    calificacion:4
   }
 
   constructor() { }

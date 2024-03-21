@@ -1,6 +1,65 @@
 <div class="card">
   <div class="card-header">
-    Vehiculo {{vehiculo.marca}} {{vehiculo.modelo}}
+    Detalle del auto: {{vehiculo.marca}} {{vehiculo.modelo}}
   </div>
 
+
+  <div class="table-responsive">
+    <div class="tabla">
+      <ul>
+        <li>Marca:{{vehiculo.marca}} </li>
+      </ul>
+      <table class="table ">
+
+        
+        <thead>
+
+        </thead>
+        <tbody>
+          <tr>
+            <th>Marca</th>  <td>{{vehiculo.marca}} </td>
+          </tr>
+          <tr>
+            <th>Modelo</th> <td>{{vehiculo.modelo}}</td>
+          </tr>
+          <tr>
+            <th>Año</th> <td>{{vehiculo.anio}}</td>
+          </tr>
+          <tr>
+            <th>Color</th> <td>{{vehiculo.color}}</td>
+          </tr>
+          <tr>
+            <th>Kilómetros</th> <td>{{vehiculo.kilometros}}</td>
+          </tr>
+          <tr>
+            <th>Precio</th> <td>{{vehiculo.precio}}</td>
+          </tr>
+          <tr>
+            <th>Calificación</th> <td>{{vehiculo.calificacion}} </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <div>
+        <button> Compra</button>
+      </div>
+      
+      <div>
+          <img src={{vehiculo.foto}} style="width: 180px; margin: 20px;">
+      </div>
+
+
+    </div>
 </div>
+
+
+<div class="card-header">
+  <button>Regreso</button>
+</div>
+
+
+</div>
+
+

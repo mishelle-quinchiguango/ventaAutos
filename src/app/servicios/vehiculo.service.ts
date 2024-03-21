@@ -14,6 +14,11 @@ getVehiculo(){
   return this.listaAutos
 }
 
+
+getVehiculoFiltro(id: string){
+  return this.listaAutos
+}
+
 private listaAutos: Array <Vehiculo>=[
   {"id":"1","foto":'https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_7fe28e653a23491e83df7fddae8ae8d2.jpg',"marca":"Chevrolet","modelo":"Silverado-a","anio":2004,"color":"Blanco","kilometros":"1000","precio":21300,"calificacion":2},
   {"id":"2","foto":'https://images.patiotuerca.com/thumbs/w/990x540xC/amz_ptf_ecuador/2292022/1693286/o_o/pt_1693286_11445403.jpg',"marca":"Suzuki","modelo":"Gran Vitara","anio":2014,"color":"Plomo","kilometros":"2190","precio":11900,"calificacion":3},
