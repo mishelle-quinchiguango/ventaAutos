@@ -24,9 +24,10 @@ export class PagVehiculoComponent implements OnInit {
 
   ngOnInit() {
     this.router.params.subscribe(params =>{
-      this.vehiculo=this.vehiculoService.getVehiculoFiltro(params['id']);
+      this.vehiculoService.getVehiculoFiltro(params['id']).subscribe(data =>{
+        this.vehiculo=data;
+      });
     })
   }
-
 
 }
