@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
 import { VehiculoService } from '../../servicios/vehiculo.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-PagVehiculoRegistro',
@@ -34,9 +35,12 @@ export class PagVehiculoRegistroComponent implements OnInit {
   guardarVehiculo() {
    let vehiculo: Vehiculo={...this.formulario.value}
     this._vehiculoService.addVehiculo(vehiculo);
-    
-    console.log('Guardado con éxito')
-    console.log(this.formulario.value)
+    Swal.fire({
+      title:"Mensaje",
+      text:"Se grabo con exito",
+      icon:"info"
+
+    });
   }
 
 }
