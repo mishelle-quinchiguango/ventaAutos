@@ -5,12 +5,14 @@ import { FormsModule } from "@angular/forms";
 import { utilitariosModule } from "../utilitarios/utilitariosModule";
 import { PagVehiculoComponent } from "./PagVehiculo/PagVehiculo.component";
 import { RouterModule } from "@angular/router";
+import { PagVehiculoRegistroComponent } from "./PagVehiculoRegistro/PagVehiculoRegistro.component";
 
 @NgModule({
     
     declarations:[
         ListaAutosComponent,
-        PagVehiculoComponent
+        PagVehiculoComponent,
+        PagVehiculoRegistroComponent
         
     ],
     imports:[
@@ -22,7 +24,8 @@ import { RouterModule } from "@angular/router";
     ],
     exports:[
         ListaAutosComponent,
-        PagVehiculoComponent
+        PagVehiculoComponent,
+        PagVehiculoRegistroComponent
     ]
 })
 
