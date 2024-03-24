@@ -25,9 +25,14 @@ export class ListaAutosComponent{
 
   }
 
+
   constructor(
-    private _vehiculoService: VehiculoService
-  ){ }
+    private _vehiculoService: VehiculoService,
+    
+  ){ 
+
+    
+  }
 
   ngOnInit(){
     this.consultarVehiculo();
