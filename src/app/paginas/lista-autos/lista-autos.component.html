@@ -9,7 +9,7 @@
               <label> Filtrar por:</label>
           </div>
           <div class="col-md-4">
-              <input type="text" placeholder="Marca" [(ngModel)]="filtro">
+              <input type="text" placeholder="Marca" [(ngModel)]="filtro" (blur)="consultarVehiculo()">
           </div>
       </div>
       <div class="row">

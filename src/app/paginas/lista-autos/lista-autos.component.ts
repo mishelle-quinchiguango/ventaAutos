@@ -10,37 +10,43 @@ export class ListaAutosComponent{
 
   tituloListaAutos: string="Lista de Automóviles";
  
-  private _filtro:string="";
-
-  get filtro(): string{
-    return this._filtro
-  }
-
-  set filtro(valorFiltro:string){
-    console.log(valorFiltro)
-
-  }
-
   muestraImagen: boolean= false;
 
   listaAutos: Array<any>=[];
+  private _filtro:string="";
+
+  get filtro(){
+    return this._filtro
+  }
+
+  set filtro(data:string){
+    this._filtro=data;
+    this.consultarVehiculo();
+
+  }
 
   constructor(
     private _vehiculoService: VehiculoService
   ){ }
 
   ngOnInit(){
-   this.listaAutos=this._vehiculoService.getVehiculos();
-   
+    this.consultarVehiculo();
+ 
   }
   
   mostrarImagen():void{   //funcion para mostrar imagenes
     this.muestraImagen=!this.muestraImagen
 
   }
-  
 
-  recepcion(dato: number){
+  consultarVehiculo(){
+    this._vehiculoService.getVehiculos(this.filtro).subscribe(data=>{
+      this.listaAutos=data;
+  
+     });
+   }
+
+   recepcion(dato: number){
     alert("Dieron clic en la calificación:  "+ dato)
 
   }
