@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
 import { VehiculoService } from '../../servicios/vehiculo.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -18,7 +18,7 @@ export class PagVehiculoRegistroComponent implements OnInit {
     private _formBuilder:FormBuilder
   ) { 
       this.formulario= this._formBuilder.group({
-      "id":['', [Validators.required]],
+      "id":['', [Validators.required,validadorCodigo()]],
       "marca":[],
       "modelo":[],
       "anio":[],
@@ -49,5 +49,18 @@ export class PagVehiculoRegistroComponent implements OnInit {
 
     }
   }
+}
 
+export function validadorCodigo(): ValidatorFn {
+  return (control: AbstractControl):ValidationErrors | null =>{
+    const codigoV=/^\d{4}$/;
+    let value=control.value;
+    if(codigoV.test(value)){
+      return null;
+    }
+      return ({'codigoValidate': true});
+
+    
+  }
+  
 }
