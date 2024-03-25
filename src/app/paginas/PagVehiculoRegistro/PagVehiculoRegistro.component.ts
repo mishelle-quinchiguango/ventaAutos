@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
 import { VehiculoService } from '../../servicios/vehiculo.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,23 +17,26 @@ export class PagVehiculoRegistroComponent implements OnInit {
     private _vehiculoService: VehiculoService,
     private _formBuilder:FormBuilder
   ) { 
-        this.formulario= this._formBuilder.group({
-      "id":[],
+      this.formulario= this._formBuilder.group({
+      "id":['', [Validators.required]],
       "marca":[],
       "modelo":[],
       "anio":[],
       "color":[],
-      "kilometraje":[],
+      "kilometros":[],
       "precio":[],
       "calificacion":[]
     });
   }
 
   ngOnInit() {
+    
   }
 
   guardarVehiculo() {
-   let vehiculo: Vehiculo={...this.formulario.value}
+
+    if(this.formulario.valid){
+      let vehiculo: Vehiculo={...this.formulario.value}
     this._vehiculoService.addVehiculo(vehiculo);
     Swal.fire({
       title:"Mensaje",
@@ -41,6 +44,10 @@ export class PagVehiculoRegistroComponent implements OnInit {
       icon:"info"
 
     });
+    }else{
+      alert('Faltan campos por llenar')
+
+    }
   }
 
 }
