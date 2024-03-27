@@ -12,4 +12,9 @@ export class RegistrarseComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  guardarCliente(){
+    alert("Se registró correctamente")
+  }
+
 }

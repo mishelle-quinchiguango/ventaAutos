@@ -88,7 +88,12 @@ export class PagVehiculoRegistroComponent implements OnInit {
 
     }
   }
+
+
 }
+
+
+
 
 export function validadorCodigo(): ValidatorFn {
   return (control: AbstractControl):ValidationErrors | null =>{
