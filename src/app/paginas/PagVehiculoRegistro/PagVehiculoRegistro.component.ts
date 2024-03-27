@@ -68,7 +68,8 @@ export class PagVehiculoRegistroComponent implements OnInit {
             title:"Mensaje",
             text:"Vehiculo registrado con éxito",
             icon:"success"
-          } );
+          } ).then(res=>{
+            this.formulario.reset(); });
         }else{
           Swal.fire({
             title:"Mensaje",
@@ -77,7 +78,7 @@ export class PagVehiculoRegistroComponent implements OnInit {
           } );
         }
       }
-     ) ; 
+     );
     }else{
       Swal.fire({
         title:"Mensaje",
