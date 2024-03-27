@@ -3,7 +3,7 @@ export interface Vehiculo{
     marca: string;
     color?: string;
     modelo: string;
-    kilometros?: string;
+    kilometraje?: string;
     precio?: number;
     foto?: string | null;
     anio?: number;

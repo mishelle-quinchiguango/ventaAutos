@@ -9,7 +9,7 @@
               <label> Filtrar por:</label>
           </div>
           <div class="col-md-4">
-              <input type="text" placeholder="Marca" [(ngModel)]="filtro" (blur)="consultarVehiculo()">
+              <input type="text" placeholder="Marca" [(ngModel)]="filtro">
           </div>
       </div>
       <div class="row">
@@ -55,7 +55,7 @@
                 <td>{{item.modelo | lowercase | aEspacio:"-"}}</td>
                 <td>{{item.anio}}</td>
                 <td>{{item.color}}</td>
-                <td>{{item.kilometros | number}}</td>
+                <td>{{item.kilometraje | number}}</td>
                 <td>{{item.precio |currency:"USD"}}</td>
                 <td>
                     <app-calificacion [calificacionEntrante]="item.calificacion" (startsClic)="recepcion($event)"></app-calificacion>

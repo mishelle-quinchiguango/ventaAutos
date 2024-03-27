@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/vehiculo.service';
+import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
 
 @Component({
   selector: 'lista-autos',
@@ -12,7 +13,7 @@ export class ListaAutosComponent{
  
   muestraImagen: boolean= false;
 
-  listaAutos: Array<any>=[];
+  listaAutos: Array<Vehiculo>=[];
   private _filtro:string="";
 
   get filtro(){
@@ -21,7 +22,7 @@ export class ListaAutosComponent{
 
   set filtro(data:string){
     this._filtro=data;
-    this.consultarVehiculo();
+    //this.consultarVehiculo();
 
   }
 
@@ -35,8 +36,13 @@ export class ListaAutosComponent{
   }
 
   ngOnInit(){
-    this.consultarVehiculo();
- 
+    //this.consultarVehiculo();
+       
+    this._vehiculoService.getVehiculos().subscribe(respuestaAPI =>{
+      console.log(respuestaAPI);
+      this.listaAutos=respuestaAPI;
+    });
+
   }
   
   mostrarImagen():void{   //funcion para mostrar imagenes
@@ -44,12 +50,12 @@ export class ListaAutosComponent{
 
   }
 
-  consultarVehiculo(){
+  /*consultarVehiculo(){
     this._vehiculoService.getVehiculos(this.filtro).subscribe(data=>{
       this.listaAutos=data;
   
      });
-   }
+   }*/
 
    recepcion(dato: number){
     alert("Dieron clic en la calificación:  "+ dato)

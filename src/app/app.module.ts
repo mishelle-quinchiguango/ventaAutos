@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { paginaModule } from './paginas/paginaModule';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    paginaModule
+    paginaModule,
+    HttpClientModule
     
   ],
   providers: [],
