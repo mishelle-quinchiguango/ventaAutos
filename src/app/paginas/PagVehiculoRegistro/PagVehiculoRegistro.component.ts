@@ -18,7 +18,7 @@ export class PagVehiculoRegistroComponent implements OnInit {
     private _formBuilder:FormBuilder
   ) { 
       this.formulario= this._formBuilder.group({
-      "id":['', [Validators.required,validadorCodigo()]],
+      "codigo":['', [Validators.required,validadorCodigo()]],
       "marca":[],
       "modelo":[],
       "anio":[],
@@ -33,7 +33,7 @@ export class PagVehiculoRegistroComponent implements OnInit {
     
   }
 
-  guardarVehiculo() {
+  /*guardarVehiculo() {
 
     if(this.formulario.valid){
       let vehiculo: Vehiculo={...this.formulario.value}
@@ -45,7 +45,42 @@ export class PagVehiculoRegistroComponent implements OnInit {
 
     });
     }else{
-      alert('Faltan campos por llenar')
+      Swal.fire({
+        title:"Mensaje",
+        text:"Faltan campos por llenarensaje",
+        icon:"error"
+      } )
+
+    }
+  }*/
+
+
+  guardarVehiculo() {
+
+    if(this.formulario.valid){
+     this._vehiculoService.insertVehiculo({...this.formulario.value}).subscribe(
+      respuesta =>{
+        if(respuesta.codigo=='1'){
+          Swal.fire({
+            title:"Mensaje",
+            text:"Vehiculo registrado con éxito",
+            icon:"success"
+          } );
+        }else{
+          Swal.fire({
+            title:"Mensaje",
+            text:"No se pudo registrar el vehculo: "+ respuesta.mensaje,
+            icon:"error"
+          } );
+        }
+      }
+     ) ; 
+    }else{
+      Swal.fire({
+        title:"Mensaje",
+        text:"Faltan campos por llenar",
+        icon:"error"
+      } );
 
     }
   }

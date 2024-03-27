@@ -11,7 +11,7 @@ import { VehiculoService } from '../../servicios/vehiculo.service';
 export class PagVehiculoComponent implements OnInit {
 
   vehiculo?: Vehiculo={
-    id:"",
+    codigo:"",
     foto:"",
     marca:"",
     modelo:""
@@ -24,7 +24,7 @@ export class PagVehiculoComponent implements OnInit {
 
   ngOnInit() {
     this.router.params.subscribe(params =>{
-      this.vehiculoService.getVehiculoFiltro(params['id']).subscribe(data =>{
+      this.vehiculoService.getVehiculoFiltro(params['codigo']).subscribe(data =>{
         this.vehiculo=data;
       });
     })
