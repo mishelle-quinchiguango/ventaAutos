@@ -26,7 +26,7 @@ const routes: Routes = [
     component: PagVehiculoRegistroComponent
   },
   {
-    path: "vehiculo/:id", 
+    path: "vehiculo/:codigo", 
     component: PagVehiculoComponent
   },
   {

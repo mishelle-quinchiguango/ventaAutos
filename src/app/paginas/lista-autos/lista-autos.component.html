@@ -50,9 +50,12 @@
           <tbody>
             <tr *ngFor="let item of listaAutos">
                 <td><img src={{item.foto}} style="width: 180px; margin: 20px;" *ngIf="this.muestraImagen" ></td> 
-                <td>{{item.codigo}}</td>
+                <td>
+                    <a [routerLink]="[ '/vehiculo/'+ item.codigo]">  {{item.codigo}} </a>
+                </td>
+                 
                 <td> 
-                    <a [routerLink]="[ '/vehiculo/'+ item.marca]">  {{item.marca}} </a> 
+                     {{item.marca}} 
                 </td>
                 
                 <td>{{item.modelo | lowercase | aEspacio:"-"}}</td>

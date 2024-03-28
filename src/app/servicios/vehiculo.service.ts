@@ -16,6 +16,10 @@ constructor(
 
 baseUrl= "http://www.epico.gob.ec/vehiculo/public/api/";
 
+httpOptions={
+  headers: new HttpHeaders({'Content-Type':'application/json'})
+}
+
 getVehiculos():Observable <Vehiculo[]>{
   return this.http.get <Respuesta>(
     this.baseUrl+"vehiculos/").pipe(
@@ -36,26 +40,35 @@ getVehiculos():Observable <Vehiculo[]>{
 */
 
 insertVehiculo(vehiculo: Vehiculo){
-  let httpOptions={
-    headers: new HttpHeaders({'Content-Type':'application/json'})
-  }
-  return this.http.post<Respuesta>(this.baseUrl+"vehiculo/",vehiculo,httpOptions); //httOption le dice  q le pasa un tipo json 
+  
+  return this.http.post<Respuesta>(this.baseUrl+"vehiculo/",vehiculo,this.httpOptions); //httOption le dice  q le pasa un tipo json 
 
 }
 
 
-getVehiculoFiltro(codigo: string):Observable <Vehiculo|undefined>{
+/*getVehiculoFiltro(codigo: string):Observable <Vehiculo|undefined>{
   const escucha: Observable <Vehiculo|undefined> = new Observable(escuchando=>{
     let vehiculo= this.listaAutos.find(ele=> ele.codigo===codigo);
     escuchando.next(vehiculo);
 
   } );
    return escucha;
+}*/
+
+
+getVehiculo(codigo:string){
+  return this.http.get<Respuesta>(this.baseUrl+"vehiculo/"+codigo);
 }
 
 
 addVehiculo(vehiculo: Vehiculo){
   this.listaAutos.push(vehiculo);
+
+}
+
+
+actualizarVehiculo(vehiculo: Vehiculo, codigo:string){
+  return this.http.put<Respuesta>(this.baseUrl+"vehiculo/"+codigo,vehiculo, this.httpOptions)
 
 }
 

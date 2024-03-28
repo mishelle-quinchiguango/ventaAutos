@@ -6,7 +6,12 @@
   <form [formGroup]="formulario">
   <div class="row">
 
-
+    <div class="mb-3 row">
+      <label for="staticCodigo" class="col-sm-2 col-form-label">Código: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="staticCodigo" name="codigo" formControlName="codigo">
+      </div>
+      </div>
 
     <div class="mb-3 row">
       <label for="staticCodigo" class="col-sm-2 col-form-label">Marca: </label>
@@ -15,7 +20,7 @@
       </div>
       </div>
 
-      <div class="mb-3 row">
+        <div class="mb-3 row">
         <label for="staticCodigo" class="col-sm-2 col-form-label">Modelo: </label>
         <div class="col-sm-10">
           <input type="text" class="form-control" id="staticCodigo" name="modelo" formControlName="modelo">
