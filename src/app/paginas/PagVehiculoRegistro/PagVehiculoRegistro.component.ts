@@ -3,6 +3,7 @@ import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
 import { VehiculoService } from '../../servicios/vehiculo.service';
 import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { validadorCodigo } from '../../validaciones/VehiculoValidaciones';
 
 @Component({
   selector: 'app-PagVehiculoRegistro',
@@ -95,16 +96,4 @@ export class PagVehiculoRegistroComponent implements OnInit {
 
 
 
-export function validadorCodigo(): ValidatorFn {
-  return (control: AbstractControl):ValidationErrors | null =>{
-    const codigoV=/^\d{4}$/;
-    let value=control.value;
-    if(codigoV.test(value)){
-      return null;
-    }
-      return ({'codigoValidate': true});
 
-    
-  }
-  
-}
