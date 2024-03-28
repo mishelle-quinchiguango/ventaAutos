@@ -6,13 +6,15 @@ import { utilitariosModule } from "../utilitarios/utilitariosModule";
 import { PagVehiculoComponent } from "./PagVehiculo/PagVehiculo.component";
 import { RouterModule } from "@angular/router";
 import { PagVehiculoRegistroComponent } from "./PagVehiculoRegistro/PagVehiculoRegistro.component";
+import { RegistrarseComponent } from "./registrarse/registrarse.component";
 
 @NgModule({
     
     declarations:[
         ListaAutosComponent,
         PagVehiculoComponent,
-        PagVehiculoRegistroComponent
+        PagVehiculoRegistroComponent,
+        RegistrarseComponent
         
     ],
     imports:[

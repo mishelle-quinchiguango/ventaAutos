@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registrarse',
@@ -7,14 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistrarseComponent implements OnInit {
 
-  constructor() { }
+  formulario: FormGroup;
+
+  constructor(private _formBuilder: FormBuilder) {
+    this.formulario = this._formBuilder.group({
+      nombre: ['', [Validators.required]],
+      contraseña: ['', [Validators.required]],
+      contacto: [false], 
+      correo: [''],
+      telefono: ['']
+    });
+  }
 
   ngOnInit() {
   }
 
-
-  guardarCliente(){
-    alert("Se registró correctamente")
+  guardarCliente() {
+        alert("Se registró correctamente");
   }
-
 }
