@@ -3,11 +3,20 @@
     <div class="col-12">
       <div class="mb-3">
         <div>
+
+          <label for="nombre" class="form-label">id</label>
+          <input type="text" class="form-control" id="nombre" placeholder="id" formControlName="id">
+
+
           <label for="nombre" class="form-label">Nombre</label>
           <input type="text" class="form-control" id="nombre" placeholder="nombre" formControlName="nombre">
 
+          <label for="contraseña" class="form-label">Apellido</label>
+          <input type="text" class="form-control" id="apellido" placeholder="apellido" formControlName="apellido">
+
           <label for="contraseña" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="contraseña" placeholder="contraseña" formControlName="contraseña">
+          <input type="password" class="form-control" id="password" placeholder="password" formControlName="password">
+
 
           <input type="checkbox" id="contacto" formControlName="contacto">
           <label for="contacto">¿Desea contacto?</label>
@@ -15,10 +24,10 @@
         
         <div *ngIf="formulario.get('contacto')?.value">
           <label for="correo" class="form-label">Dirección de correo</label>
-          <input type="email" class="form-control" id="correo" placeholder="name@example.com" formControlName="correo">
+          <input type="email" class="form-control" id="email" placeholder="email" formControlName="email">
 
           <label for="telefono" class="form-label">Teléfono</label>
-          <input type="number" class="form-control" id="telefono" placeholder="número de teléfono" formControlName="telefono">
+          <input type="number" class="form-control" id="telefono" placeholder="telefono" formControlName="telefono">
         </div>
 
         <div class="row">

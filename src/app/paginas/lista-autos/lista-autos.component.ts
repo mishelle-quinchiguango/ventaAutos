@@ -93,6 +93,17 @@ export class ListaAutosComponent{
   }
 
 
+  consultarVehiculoFiltrado(evento:any){
+    const filtroMarcaModelo= evento?.target?.value || '';
+    console.log({filtroMarcaModelo});
+    this._vehiculoService.getVehiculosFiltro(filtroMarcaModelo).subscribe(respuestaAPI =>{
+      console.log(respuestaAPI);
+      this.listaAutos=respuestaAPI;
+    });
+    
+  }
+
+
 
 }
 

@@ -29,6 +29,16 @@ getVehiculos():Observable <Vehiculo[]>{
     );
 }
 
+
+getVehiculosFiltro(marcaModelo: String):Observable <Vehiculo[]>{
+  return this.http.get <Respuesta>(
+    this.baseUrl+"vehiculos/?filtro="+marcaModelo).pipe(
+      map(respuesta => 
+        respuesta.data
+       )
+    );
+}
+
 /*getVehiculos( filtro: any): Observable <Array<Vehiculo>>{
   const escucha: Observable <Array<Vehiculo>> = new Observable(escuchando=>{
     let listaFiltro= this.listaAutos.filter(ele=> ele.marca.toLowerCase().includes(filtro.toLowerCase));
