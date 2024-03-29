@@ -44,6 +44,7 @@
                   <th>Kilómetros</th>
                   <th>Precio</th>
                   <th>Calificación</th>
+                  <th>OP</th>
 
               </tr>
           </thead>
@@ -65,6 +66,13 @@
                 <td>{{item.precio |currency:"USD"}}</td>
                 <td>
                     <app-calificacion [calificacionEntrante]="item.calificacion" (startsClic)="recepcion($event)"></app-calificacion>
+                </td>
+
+                <td>
+                    <div class="btn-group" role="group" aria-label="Basic exampple">
+                        <button type="button" class="btn btn-info">Editar</button>
+                        <button type="button" class="btn btn-danger" (click)="eliminar(item.codigo)">Eliminar</button>
+                    </div>
                 </td>
                 
                 

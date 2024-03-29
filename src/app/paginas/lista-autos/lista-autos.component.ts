@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VehiculoService } from '../../servicios/vehiculo.service';
 import { Vehiculo } from '../../utilitarios/modelos/Vehiculo';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'lista-autos',
@@ -36,12 +37,9 @@ export class ListaAutosComponent{
   }
 
   ngOnInit(){
-    //this.consultarVehiculo();
+    this.consultarVehiculo();
        
-    this._vehiculoService.getVehiculos().subscribe(respuestaAPI =>{
-      console.log(respuestaAPI);
-      this.listaAutos=respuestaAPI;
-    });
+   
 
   }
   
@@ -61,6 +59,40 @@ export class ListaAutosComponent{
     alert("Dieron clic en la calificación:  "+ dato)
 
   }
+
+
+  eliminar(codigo:string){
+    Swal.fire({
+      title:"Estpas seguro de eliminar este registro",
+      showCancelButton:true,
+      confirmButtonText:"Si",
+      cancelButtonText:"No",
+      icon:"question"
+    }).then((res)=>{
+      if(res.isConfirmed){
+        this._vehiculoService.eliminarVehiculo(codigo).subscribe(data=>{
+          if(data.codigo=='1'){
+            this.consultarVehiculo();
+            Swal.fire({
+              title:"Mensaje",
+              text:"Vehiculo eliminado con éxito",
+              icon:"success"
+            })
+          }
+        })
+        
+      }
+    })
+  }
+
+  consultarVehiculo(){
+    this._vehiculoService.getVehiculos().subscribe(respuestaAPI =>{
+      console.log(respuestaAPI);
+      this.listaAutos=respuestaAPI;
+    });
+  }
+
+
 
 }
 

@@ -72,6 +72,10 @@ actualizarVehiculo(vehiculo: Vehiculo, codigo:string){
 
 }
 
+eliminarVehiculo(codigo:string){
+  return this.http.delete<Respuesta>(this.baseUrl+"vehiculo/"+codigo)
+
+}
 
 private listaAutos: Array <Vehiculo>=[
   {"codigo":"1","foto":'https://acroadtrip.blob.core.windows.net/catalogo-imagenes/m/RT_V_7fe28e653a23491e83df7fddae8ae8d2.jpg',"marca":"Chevrolet","modelo":"Silverado-a","anio":2004,"color":"Blanco","kilometraje":"1000","precio":21300,"calificacion":2},
