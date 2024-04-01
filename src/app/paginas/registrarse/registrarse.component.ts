@@ -37,20 +37,19 @@ export class RegistrarseComponent implements OnInit {
     })
 
     if(this.formulario.valid){
-
      this._clienteService.insertCliente({...this.formulario.value}).subscribe(
       respuesta =>{
-        if(respuesta?.data?.codigo==='1'){
+        if(respuesta.codigo=='1'){
           Swal.fire({
             title:"Mensaje",
-            text:"Cliente registrado con éxito",
+            text:"Vehiculo registrado con éxito",
             icon:"success"
           } ).then(res=>{
             this.formulario.reset(); });
         }else{
           Swal.fire({
             title:"Mensaje",
-            text:"No se pudo registrar el cliente ",
+            text:"No se pudo registrar el vehculo: ",
             icon:"error"
           } );
         }

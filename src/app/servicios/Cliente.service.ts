@@ -40,13 +40,10 @@ export class ClienteService {
 }
 
 export interface Respuesta{
-    id:string;
-    nombre: string;
-    apellido: string;
-    password: string;
-    telefono: string;
-    email: string;
-    data: Array<Cliente>| Cliente|any;
+  codigo:string;
+  mensaje: string;
+  data: Array<Cliente>| Cliente|any;
+
 
 
 }
